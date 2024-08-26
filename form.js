@@ -25,8 +25,13 @@ export const formSelector = {
       </form>
     </div>
     `;
-    const submitButton = formContainer.querySelector("submit");
-    submitButton.addEventListener("click", () => {
+    const formSelected = formContainer.querySelector("form");
+    formSelected.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nombre = formSelected.nombre.value;
+      const correo = formSelected.correo.value;
+
       window.voiceflow.chat.interact({
         type: "submitted",
         payload: {
@@ -35,5 +40,6 @@ export const formSelector = {
         },
       });
     });
+    //element.appendChild(formContainer);
   },
 };

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="flat-chat"></div>
+    <div id="voiceflow-chat-frame"></div>
+    <script type="module">
+      import { formSelector } from "https://cdn.jsdelivr.net/gh/Jozenyel/formVoiceflow/form.js";
+
+      (function (d, t) {
+        var v = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: "66cbc676545e1eff4671859a" },
+            url: "https://general-runtime.voiceflow.com",
+            versionID: "production",
+            assistant: {
+              extensions: [formSelector],
+            },
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+        v.type = "text/javascript";
+        s.parentNode.insertBefore(v, s);
+      })(document, "script");
+    </script>
+  </body>
+</html>
